@@ -2,13 +2,10 @@
 #define __ACCOUT_H__
 
 #include <string>
-#include <iostream>
+#include "Printable.h"
 
 
-class Account {
-    
-    friend std::ostream &operator<<(std::ostream &os, const Account &account);
-
+class Account : public Printable {
 private:
 
     static constexpr char *default_name = "Unnamed Account";
@@ -20,9 +17,11 @@ protected:
     double balance;
 
 public:
+    void print(std::ostream &os) const {};
     Account(std::string name = default_name,double balance = default_balance);
-    bool deposit(double amount);
-    bool withdraw(double amount);
+    virtual bool deposit(double amount) = 0;
+    virtual bool withdraw(double amount) = 0;
+    virtual ~Account() {}
 };
 
 

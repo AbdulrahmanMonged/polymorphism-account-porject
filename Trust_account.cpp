@@ -1,9 +1,8 @@
 #include "Trust_account.h"
 
-std::ostream &operator<<(std::ostream &os, const Trust_account &acc) {
-    os << "Acount name: " << acc.name << ", Current Balance: " << acc.balance << ", Current Interest rate: " << acc.interest_rate  << ", Current Bonus: " << acc.bonus << ", Current attempts left for withdrawals: " << acc.withdrawals_attempts << ", Withdrawals amount percentage: " << acc.withdrawals_amount_percentage; 
-    return os;
 
+void Trust_account::print(std::ostream &os) const {
+os << "Acount name: " << name << ", Current Balance: " << balance << ", Current Interest rate: " << interest_rate  << ", Current Bonus: " << bonus << ", Current attempts left for withdrawals: " << withdrawals_attempts << ", Withdrawals amount percentage: " << withdrawals_amount_percentage; 
 }
 
 Trust_account::Trust_account(std::string name, double balance, double interest_rate) 

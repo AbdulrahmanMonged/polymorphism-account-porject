@@ -21,10 +21,6 @@ bool Account::withdraw(double amount) {
     return true;
 }
 
-std::ostream &operator<<(std::ostream &os, const Account &account) {
-    os << "Account namme: " << account.name << ", Current Balance: " << account.balance;
-    return os;
-}
 
 
 

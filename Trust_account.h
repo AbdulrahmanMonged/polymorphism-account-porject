@@ -5,7 +5,7 @@
 
 class Trust_account : public Saving_account {
 
-    friend std::ostream &operator<<(std::ostream &os, const Trust_account &acc);
+    
 private:
 
     static constexpr char *default_name = "Unnamed Account";
@@ -20,9 +20,11 @@ protected:
     int withdrawals_attempts;
 
 public:
+    void print(std::ostream &os) const override;
     Trust_account(std::string name = default_name, double balance = default_balance, double interest_rate =  default_interest);
-    bool withdraw(double amount);
-    bool deposit(double amount);
+    bool withdraw(double amount) override;
+    bool deposit(double amount) override;
+    virtual ~Trust_account() {}
 
 };
 

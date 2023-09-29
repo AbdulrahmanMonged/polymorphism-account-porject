@@ -5,7 +5,6 @@
 
 
 class Saving_account : public Account {
-    friend std::ostream &operator<<(std::ostream &os, const Saving_account &acc);
 
 private:
     static constexpr char *default_name = "Unnamed Account";
@@ -15,9 +14,11 @@ protected:
     double interest_rate;
 
 public:
+    void print(std::ostream &os) const override;
     Saving_account(std::string name = default_name, double balance = default_balance, double interest_rate = default_interest);
-    bool deposit(double amount);
-
+    bool withdraw(double amount) override;
+    bool deposit(double amount) override;
+    virtual ~Saving_account() {}
 };
 
 #endif // __SAVING_ACCOUNT_H__
